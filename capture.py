@@ -34,13 +34,11 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
 
             # compute the bounding box for the contour, draw it on the frame,
             # and update the text
-            (x, y, w, h) = cv2.boundingRect(c)
-            cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
-            print (x, y, w, h)
+
+            #TODO do something
+            # cv2.imwrite('pic.png', image)
 
     previous_image = blurred
-    #print image
-    # cv2.imwrite('pic.png', image)
     cv2.waitKey(500)
 
     rawCapture.truncate(0)
