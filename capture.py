@@ -3,18 +3,18 @@ from picamera.array import PiRGBArray
 from picamera import PiCamera
 import time
 
-web_cam = cv2.VideoCapture(0)
 camera = PiCamera()
-rawCapture = PiRGBArray(camera)
+camera.resolution = (640, 480)
+camera.framerate = 32
+rawCapture = PiRGBArray(camera, size=(640, 480))
 
 # warm up camera
 time.sleep(0.1)
 
-while True:
-    # ret, color = web_cam.read()
-    #cv2.imwrite('/messigray.png',color)
-    camera.capture(rawCapture, format="bgr")
-    image = rawCapture.array
+for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
+    image = frame.array
 
     print image
     cv2.waitKey(500)
+
+    rawCapture.truncate(0)

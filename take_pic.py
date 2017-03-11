@@ -3,7 +3,6 @@ from picamera.array import PiRGBArray
 from picamera import PiCamera
 import time
 
-web_cam = cv2.VideoCapture(0)
 camera = PiCamera()
 rawCapture = PiRGBArray(camera)
 
