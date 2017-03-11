@@ -4,17 +4,17 @@ from picamera import PiCamera
 import time
 
 web_cam = cv2.VideoCapture(0)
-camera = PiCamera
+camera = PiCamera()
 rawCapture = PiRGBArray(camera)
 
 # warm up camera
 time.sleep(0.1)
 
 while True:
-	# ret, color = web_cam.read()
-	#cv2.imwrite('/messigray.png',color)
+    # ret, color = web_cam.read()
+    #cv2.imwrite('/messigray.png',color)
     camera.capture(rawCapture, format="bgr")
     image = rawCapture.array
 
-	print image
-	cv2.waitKey(500)
+    print image
+    cv2.waitKey(500)
