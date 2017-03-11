@@ -16,6 +16,7 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
 
     #print image
     cv2.imwrite('pic.png', image)
-    cv2.waitKey(500)
+    #cv2.waitKey(500)
 
     rawCapture.truncate(0)
+    break
